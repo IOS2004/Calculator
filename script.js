@@ -119,8 +119,15 @@ function isValidComp(str)
 function convInt(str)
 {
   let j = str.length - 1;
-  while (j > 0 && (str[j] == '0' || str[j] == '.'))
+  while ((str[j] == '0'))
+  {
     j--;
+    if (str[j] == '.')
+    {
+      j--;
+      break;
+    }
+  }
   return str.substr(0, j + 1);
 }
 
